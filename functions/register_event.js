@@ -8,9 +8,7 @@ module.exports = async link => {
     let event_id = event_id_regex.exec(link)[1];
 
     const name_regex = /<span class="gameName">(.+?)<\/span>/;
-    let result_map = name_regex.exec(res.body);
-
-    if (result_map == null) name = "Classic";
+    let name = name_regex.exec(res.body)[1];
 
     const time_remaining_regex = /<span class="timeremaining" unixtime="(\d*)" unixtimefrom="\d*">(.+?)<\/span>/;
     let start_time = time_remaining_regex.exec(res.body)[1];
