@@ -18,7 +18,8 @@ module.exports = async link => {
     let time_for_move = time_for_move_regex.exec(res.body)[1];
 
     const map_name_regex = /<a class="light".*?>(.*?)<\/a>/;
-    let map_name = map_name_regex.exec(res.body)[1];
+    let result_map = map_name_regex.exec(res.body);
+    let map_name = result_map == null ? "Classic" : result_map[1];
 
     const player_number_regex = /<span class="gamePhase"><b>\d+?<\/b>(.*?)<\/span>/;
     let player_number = player_number_regex.exec(res.body)[1];
