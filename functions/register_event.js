@@ -21,9 +21,10 @@ module.exports = async link => {
     let result_map = map_name_regex.exec(res.body);
     let map_name = result_map == null ? "Classic" : result_map[1];
 
-    const player_number_regex = /<span class="gamePhase"><b>\d+?<\/b>(.*?)<\/span>/;
-    let player_number = player_number_regex.exec(res.body)[1];
-    player_number = "1" + player_number;
+    const player_number_regex = /<span class="gamePhase"><b>(\d+?)<\/b>(.*?)<\/span>/;
+    let num = player_number_regex.exec(res.body)[1];
+    let player_number = player_number_regex.exec(res.body)[2];
+    player_number = num + player_number;
 
     let type = Types[time_for_move] === undefined ? 1 : Types[time_for_move];
 

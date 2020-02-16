@@ -40,4 +40,4 @@ function get_events() {
 
 setInterval(() => {
     get_events();
-}, 20000);
+}, 10000);
