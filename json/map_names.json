@@ -1,0 +1,434 @@
+[
+	{
+		"name": "Aberration V",
+		"id": 1
+	},
+	{
+		"name": "Abstraction III",
+		"id": 2
+	},
+	{
+		"name": "Africa",
+		"id": 3
+	},
+	{
+		"name": "Age of Pericles",
+		"id": 4
+	},
+	{
+		"name": "Alacavre",
+		"id": 5
+	},
+	{
+		"name": "American Conflict",
+		"id": 6
+	},
+	{
+		"name": "Anarchy in the UK",
+		"id": 7
+	},
+	{
+		"name": "The Ancient Mediterranean",
+		"id": 8
+	},
+	{
+		"name": "Atlantic Colonies",
+		"id": 9
+	},
+	{
+		"name": "War of Austrian Succession",
+		"id": 10
+	},
+	{
+		"name": "Balkan Wars VI",
+		"id": 11
+	},
+	{
+		"name": "Balkans 1860",
+		"id": 12
+	},
+	{
+		"name": "Classic - Build anywhere",
+		"id": 13
+	},
+	{
+		"name": "Canton Diplomacy",
+		"id": 14
+	},
+	{
+		"name": "Celtic Britain",
+		"id": 15
+	},
+	{
+		"name": "Chromatic",
+		"id": 16
+	},
+	{
+		"name": "Classic",
+		"id": 17
+	},
+	{
+		"name": "Classic - 1880",
+		"id": 18
+	},
+	{
+		"name": "Classic - 1897",
+		"id": 19
+	},
+	{
+		"name": "Classic - 1898",
+		"id": 20
+	},
+	{
+		"name": "Classic - 1898 Fog of War",
+		"id": 21
+	},
+	{
+		"name": "Classic - 1913",
+		"id": 22
+	},
+	{
+		"name": "Classic - Antanta vs Triple Alliance",
+		"id": 23
+	},
+	{
+		"name": "Classic - Brazilian",
+		"id": 24
+	},
+	{
+		"name": "Classic - Cataclysm",
+		"id": 25
+	},
+	{
+		"name": "Classic - Chaos",
+		"id": 26
+	},
+	{
+		"name": "Classic - Croatia",
+		"id": 27
+	},
+	{
+		"name": "Classic - Crowded",
+		"id": 28
+	},
+	{
+		"name": "Classic - Economic",
+		"id": 29
+	},
+	{
+		"name": "Classic - England Vs Turkey",
+		"id": 30
+	},
+	{
+		"name": "Classic - France vs Germany vs Austria",
+		"id": 31
+	},
+	{
+		"name": "Classic - Frankland Vs Juggernaut",
+		"id": 32
+	},
+	{
+		"name": "Classic - Fog of War",
+		"id": 33
+	},
+	{
+		"name": "Classic - France vs Austria",
+		"id": 34
+	},
+	{
+		"name": "Classic - GreyPress",
+		"id": 35
+	},
+	{
+		"name": "Classic - Germany vs Italy",
+		"id": 36
+	},
+	{
+		"name": "Classic - Milan Diplomacy",
+		"id": 37
+	},
+	{
+		"name": "Classic - NoNeutrals",
+		"id": 38
+	},
+	{
+		"name": "Classic - One On One",
+		"id": 39
+	},
+	{
+		"name": "Classic - Pilot",
+		"id": 40
+	},
+	{
+		"name": "Classic - 7 Islands",
+		"id": 41
+	},
+	{
+		"name": "Classic Touchy",
+		"id": 42
+	},
+	{
+		"name": "Classic - Pick your countries",
+		"id": 43
+	},
+	{
+		"name": "Cold War",
+		"id": 44
+	},
+	{
+		"name": "Colonial Diplomacy",
+		"id": 45
+	},
+	{
+		"name": "Colonial 1885",
+		"id": 46
+	},
+	{
+		"name": "Crusades 1201",
+		"id": 47
+	},
+	{
+		"name": "Classic - With a custom start",
+		"id": 48
+	},
+	{
+		"name": "Dark Ages",
+		"id": 49
+	},
+	{
+		"name": "Duo",
+		"id": 50
+	},
+	{
+		"name": "Edwardian era",
+		"id": 51
+	},
+	{
+		"name": "Fall of the American Empire: Civil War!",
+		"id": 52
+	},
+	{
+		"name": "Fall of the American Empire IV",
+		"id": 53
+	},
+	{
+		"name": "1800 - Empires and Coalitions",
+		"id": 54
+	},
+	{
+		"name": "Enlightenment & Succession",
+		"id": 55
+	},
+	{
+		"name": "1600",
+		"id": 56
+	},
+	{
+		"name": "Europe 1939",
+		"id": 57
+	},
+	{
+		"name": "Fantasy World Diplomacy",
+		"id": 58
+	},
+	{
+		"name": "First Crusade",
+		"id": 59
+	},
+	{
+		"name": "Classic - With fleet in Rome",
+		"id": 60
+	},
+	{
+		"name": "Germany 1648",
+		"id": 61
+	},
+	{
+		"name": "Indians of the Great Lakes",
+		"id": 62
+	},
+	{
+		"name": "Greek Diplomacy",
+		"id": 63
+	},
+	{
+		"name": "Habelya",
+		"id": 64
+	},
+	{
+		"name": "Haven",
+		"id": 65
+	},
+	{
+		"name": "HeptarchyIV",
+		"id": 66
+	},
+	{
+		"name": "Hundred",
+		"id": 67
+	},
+	{
+		"name": "Hussite Wars",
+		"id": 68
+	},
+	{
+		"name": "Imperial Diplomacy II",
+		"id": 69
+	},
+	{
+		"name": "Imperium Diplomacy",
+		"id": 70
+	},
+	{
+		"name": "Karibik",
+		"id": 71
+	},
+	{
+		"name": "Known World 901",
+		"id": 72
+	},
+	{
+		"name": "Lepanto",
+		"id": 73
+	},
+	{
+		"name": "Maharajah",
+		"id": 74
+	},
+	{
+		"name": "Manifest Destiny",
+		"id": 75
+	},
+	{
+		"name": "Mars",
+		"id": 76
+	},
+	{
+		"name": "Mate Against Mate",
+		"id": 77
+	},
+	{
+		"name": "Middeast",
+		"id": 78
+	},
+	{
+		"name": "Modern Diplomacy II",
+		"id": 79
+	},
+	{
+		"name": "Napoleonic",
+		"id": 80
+	},
+	{
+		"name": "NorthSea Wars",
+		"id": 81
+	},
+	{
+		"name": "Pirates",
+		"id": 82
+	},
+	{
+		"name": "Punic Wars",
+		"id": 83
+	},
+	{
+		"name": "Pure",
+		"id": 84
+	},
+	{
+		"name": "Rat Wars",
+		"id": 85
+	},
+	{
+		"name": "Renaissance - 1453",
+		"id": 86
+	},
+	{
+		"name": "Rinascimento",
+		"id": 87
+	},
+	{
+		"name": "Sail Ho II",
+		"id": 88
+	},
+	{
+		"name": "Sengoku",
+		"id": 89
+	},
+	{
+		"name": "Sengoku: Nagashino (V6)",
+		"id": 90
+	},
+	{
+		"name": "South America (4 players)",
+		"id": 91
+	},
+	{
+		"name": "South America (5 players)",
+		"id": 92
+	},
+	{
+		"name": "South American Supremacy",
+		"id": 93
+	},
+	{
+		"name": "Spice Islands",
+		"id": 94
+	},
+	{
+		"name": "1066",
+		"id": 95
+	},
+	{
+		"name": "843: Treaty of Verdun",
+		"id": 96
+	},
+	{
+		"name": "USA",
+		"id": 97
+	},
+	{
+		"name": "Viking Diplomacy IV",
+		"id": 98
+	},
+	{
+		"name": "World War II",
+		"id": 99
+	},
+	{
+		"name": "World War IV",
+		"id": 100
+	},
+	{
+		"name": "War in 2020",
+		"id": 101
+	},
+	{
+		"name": "Western World 901",
+		"id": 102
+	},
+	{
+		"name": "Who controls America",
+		"id": 103
+	},
+	{
+		"name": "World Diplomacy IX",
+		"id": 104
+	},
+	{
+		"name": "World Diplomacy X",
+		"id": 105
+	},
+	{
+		"name": "Youngstown - Redux",
+		"id": 106
+	},
+	{
+		"name": "Youngstown World War II",
+		"id": 107
+	},
+	{
+		"name": "Zeus 5",
+		"id": 108
+	}
+]
