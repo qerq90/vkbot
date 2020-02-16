@@ -96,26 +96,6 @@ bot.command("/тип", async ctx => {
     ctx.scene.enter("change_type");
 });
 
-bot.command("/выкл", async ctx => {
-    let usr_id = ctx.message.from_id;
-    let user = await User.findOne({ id: usr_id });
-
-    user.write_perm = false;
-
-    ctx.reply(replies.perm_off);
-    user.save();
-});
-
-bot.command("/вкл", async ctx => {
-    let usr_id = ctx.message.from_id;
-    let user = await User.findOne({ id: usr_id });
-
-    user.write_perm = true;
-
-    ctx.reply(replies.perm_off);
-    user.save();
-});
-
 //---------------------------------------------
 
 bot.event("message_new", async ctx => {
