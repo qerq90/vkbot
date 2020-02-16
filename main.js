@@ -162,4 +162,4 @@ async function send_notifications() {
 
 setInterval(() => {
     send_notifications();
-}, 20000);
+}, 10000);
