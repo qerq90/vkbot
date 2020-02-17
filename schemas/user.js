@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
     forb_maps: Array,
     muted_till: Date,
     duel_off: Boolean,
-    type_of_events: Number // 0 - only blutz , 1 - only longs , 2 - blutz + longs
+    type_of_events: Number, // 0 - only blutz , 1 - only longs , 2 - blutz + longs
+    getting_starting_event: Boolean
 });
 module.exports = new mongoose.model("User", UserSchema);
