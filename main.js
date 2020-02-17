@@ -9,7 +9,12 @@ const replies = require("./json/replies.json");
 const stage = require("./Scenes/scenes");
 const Session = require("node-vk-bot-api/lib/session");
 
-const { register, send_message, get_user_ids } = require("./functions");
+const {
+    register,
+    send_message,
+    get_user_ids,
+    get_users_for_starting
+} = require("./functions");
 
 require("dotenv").config();
 
@@ -26,6 +31,36 @@ bot.use(session.middleware());
 bot.use(stage.middleware());
 
 //-----------------------------------------
+
+bot.command("/вкл старт", async ctx => {
+    let usr_id = ctx.message.from_id;
+    let user = await User.findOne({ id: usr_id });
+
+    if (user === null) {
+        await register(usr_id);
+        ctx.reply(replies.greeting);
+        return;
+    }
+
+    user.getting_starting_event = true;
+    user.save();
+    ctx.reply(replies.start_game_on);
+});
+
+bot.command("/выкл старт", async ctx => {
+    let usr_id = ctx.message.from_id;
+    let user = await User.findOne({ id: usr_id });
+
+    if (user === null) {
+        await register(usr_id);
+        ctx.reply(replies.greeting);
+        return;
+    }
+
+    user.getting_starting_event = false;
+    user.save();
+    ctx.reply(replies.start_game_off);
+});
 
 bot.command("/вкл", async ctx => {
     let usr_id = ctx.message.from_id;
@@ -96,26 +131,6 @@ bot.command("/тип", async ctx => {
     ctx.scene.enter("change_type");
 });
 
-bot.command("/выкл", async ctx => {
-    let usr_id = ctx.message.from_id;
-    let user = await User.findOne({ id: usr_id });
-
-    user.write_perm = false;
-
-    ctx.reply(replies.perm_off);
-    user.save();
-});
-
-bot.command("/вкл", async ctx => {
-    let usr_id = ctx.message.from_id;
-    let user = await User.findOne({ id: usr_id });
-
-    user.write_perm = true;
-
-    ctx.reply(replies.perm_off);
-    user.save();
-});
-
 //---------------------------------------------
 
 bot.event("message_new", async ctx => {
@@ -147,7 +162,7 @@ async function send_notifications() {
         setTimeout(() => {
             send_message(
                 "Игра началась!(Или ее отменили :D)\n" + event_info,
-                user_ids
+                get_users_for_starting(user_ids)
             );
         }, time_for_start);
         //-------------------------------------------------------

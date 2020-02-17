@@ -7,7 +7,8 @@ module.exports = async usr_id => {
         forb_maps: [],
         muted_till: new Date(),
         duel_off: false,
-        type_of_events: 2
+        type_of_events: 2,
+        getting_starting_event: true
     });
 
     user.save();
