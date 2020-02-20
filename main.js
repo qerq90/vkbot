@@ -142,6 +142,11 @@ bot.event("message_new", async ctx => {
     let user = await User.find({ id: usr_id });
 
     if (user.length) {
+        let regex = /Тро(я|и|ю)|тро(я|и|ю)/;
+        if (ctx.message.text.search(regex) > -1) {
+            ctx.reply("Пидоры,поставьте уже Трою!");
+        }
+
         return;
     } else {
         register(usr_id);
