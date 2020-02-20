@@ -131,6 +131,10 @@ bot.command("/тип", async ctx => {
     ctx.scene.enter("change_type");
 });
 
+bot.command("/help", async ctx => {
+    ctx.reply(replies.help);
+});
+
 //---------------------------------------------
 
 bot.event("message_new", async ctx => {
