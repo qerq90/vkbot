@@ -8,7 +8,6 @@ const url_game = "https://server.webdiplomacy.ru/gamelistings.php";
 require("dotenv").config();
 
 let already_proccesed = [];
-let already_proccesed_active = [];
 
 mongoose
     .connect(process.env.MONGOTOKEN, {

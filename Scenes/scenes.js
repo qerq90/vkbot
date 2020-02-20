@@ -30,7 +30,7 @@ const scene_type_change = new Scene(
         }
 
         let message = Number(usr_msg.match(/^\d+$/)[0]);
-        if (message > 2) return replies.bad_number;
+        if (message > 2 || message < 0) return replies.bad_number;
 
         let user = await User.findOne({ id: usr_id });
         user.type_of_events = message;
@@ -56,6 +56,9 @@ const scene_ban_map = new Scene(
         }
 
         let map = message.match(/^\d+$/)[0];
+
+        if (map > 108 || map === 0) return ctx.reply(replies.bad_map);
+
         let user = await User.findOne({ id: usr_id });
         user.forb_maps.push(map);
         user.save();
