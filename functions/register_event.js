@@ -32,7 +32,7 @@ module.exports = async link => {
         name: name,
         map: map_name,
         time_remaining: time_remaining,
-        starting_time: new Date((start_time + 480 * 60) * 1000), // небольшой костыль из-за разницы в часовых поясах
+        starting_time: new Date((Number(start_time) + 480 * 60) * 1000), // небольшой костыль из-за разницы в часовых поясах
         player_number: player_number,
         url: link,
         id: event_id,
