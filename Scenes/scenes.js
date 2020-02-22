@@ -30,7 +30,7 @@ const scene_type_change = new Scene(
         }
 
         let message = Number(usr_msg.match(/^\d+$/)[0]);
-        if (message > 2 || message < 0) return replies.bad_number;
+        if (message > 2 || message < 0) return ctx.reply(replies.bad_number);
 
         let user = await User.findOne({ id: usr_id });
         user.type_of_events = message;

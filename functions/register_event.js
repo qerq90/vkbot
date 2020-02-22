@@ -17,7 +17,7 @@ module.exports = async link => {
     const time_for_move_regex = /<span class="gameHoursPerPhase">\s*<strong>(.*?)<\/strong>/;
     let time_for_move = time_for_move_regex.exec(res.body)[1];
 
-    const map_name_regex = /<a class="light".*?>(.*?)<\/a>/;
+    const map_name_regex = /"gamePotType"><a class="light".*?>(.*?)<\/a>/;
     let result_map = map_name_regex.exec(res.body);
     let map_name = result_map == null ? "Classic" : result_map[1];
 
@@ -32,7 +32,7 @@ module.exports = async link => {
         name: name,
         map: map_name,
         time_remaining: time_remaining,
-        starting_time: new Date(start_time * 1000),
+        starting_time: new Date((start_time + 480 * 60) * 1000), // небольшой костыль из-за разницы в часовых поясах
         player_number: player_number,
         url: link,
         id: event_id,
