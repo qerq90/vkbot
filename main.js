@@ -131,6 +131,32 @@ bot.command("/тип", async ctx => {
     ctx.scene.enter("change_type");
 });
 
+bot.command("/не следить", async ctx => {
+    let usr_id = ctx.message.from_id;
+    let user = await User.findOne({ id: usr_id });
+
+    if (user === null) {
+        await register(usr_id);
+        ctx.reply(replies.greeting);
+        return;
+    }
+
+    ctx.scene.enter("active_games_pop");
+});
+
+bot.command("/следить", async ctx => {
+    let usr_id = ctx.message.from_id;
+    let user = await User.findOne({ id: usr_id });
+
+    if (user === null) {
+        await register(usr_id);
+        ctx.reply(replies.greeting);
+        return;
+    }
+
+    ctx.scene.enter("active_games_choose");
+});
+
 bot.command("/help", async ctx => {
     ctx.reply(replies.help);
 });
@@ -142,7 +168,7 @@ bot.event("message_new", async ctx => {
     let user = await User.find({ id: usr_id });
 
     if (user.length) {
-        let regex = /Тро(я|и|ю)|тро(я|и|ю)/;
+        let regex = /(Т|т)ро(я|и|ю)/;
         if (ctx.message.text.search(regex) > -1) {
             ctx.reply("Пидоры,поставьте уже Трою!");
         }
@@ -187,3 +213,9 @@ async function send_notifications() {
 setInterval(() => {
     send_notifications();
 }, 10000);
+
+// User.update(
+//     {},
+//     { $set: { watching: [] } },
+//     { upsert: false, multi: true }
+// ).exec();
