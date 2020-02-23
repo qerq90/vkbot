@@ -87,7 +87,7 @@ async function get_active_games() {
 
                     let activeGame = new ActiveGame({
                         name: name,
-                        time_remaining: start_time,
+                        time_remaining: new Date(start_time * 1000),
                         url: link,
                         id: event_id
                     });

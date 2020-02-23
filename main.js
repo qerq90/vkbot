@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const User = require("./schemas/user");
 const Event = require("./schemas/event");
+const ActiveGame = require("./schemas/active_game");
 
 const replies = require("./json/replies.json");
 
@@ -210,10 +211,31 @@ async function send_notifications() {
     }
 }
 
+async function check_active_games() {
+    let all_active_games = await ActiveGame.find({});
+    for (const game of all_active_games) {
+        if (new Date(game.time_remaining).getTime() < new Date().getTime()) {
+            let users = await User.find();
+            users = users.filter(el => el.watching.includes(game.id));
+            let user_ids = users.map(el => el.id);
+            send_message(
+                `В игре '${game.name}' был сделан новый ход`,
+                user_ids
+            );
+            await ActiveGame.deleteOne(game);
+        }
+    }
+}
+
 setInterval(() => {
     send_notifications();
 }, 10000);
 
+setInterval(() => {
+    check_active_games();
+}, 10000);
+
+// method to update collections (deprecated)
 // User.update(
 //     {},
 //     { $set: { watching: [] } },
