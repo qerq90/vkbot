@@ -47,7 +47,10 @@ async function get_active_games() {
         needle.get(
             `https://server.webdiplomacy.ru/gamelistings.php?gamelistType=Active&page-games=${j}`,
             async (err, res) => {
-                if (err) console.log(err);
+                if (err) {
+                    console.log(err);
+                    return;
+                }
 
                 const map_link_regex = /<a href="(.+)">Просмотр/g;
                 let all_a = map_link_regex.exec(res.body);
@@ -83,7 +86,13 @@ async function get_active_games() {
                     let name = name_regex.exec(result.body)[1];
 
                     const time_remaining_regex = /<span class="timeremaining" unixtime="(\d*)" unixtimefrom="\d*">(.+?)<\/span>/;
-                    let start_time = time_remaining_regex.exec(result.body)[1];
+                    let start_time;
+                    try {
+                        start_time = time_remaining_regex.exec(result.body)[1];
+                    } catch (err) {
+                        start_time = 0;
+                        console.log(link);
+                    }
 
                     let activeGame = new ActiveGame({
                         name: name,
@@ -99,9 +108,9 @@ async function get_active_games() {
     }
 }
 
-setInterval(() => {
-    get_events();
-}, 10000);
+// setInterval(() => {
+//     get_events();
+// }, 10000);
 
 setInterval(() => {
     get_active_games();
