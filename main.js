@@ -193,7 +193,7 @@ async function send_notifications() {
         let event_info = `${event.name}\nКоличество игроков - ${event.player_number}\nНазвание карты - ${event.map}\nДо начала - ${event.time_remaining}\nПартия начнется ${event.starting_time}\nВремя на ход - ${event.time_for_move}\nСсылка на партию - ${event.url}`;
 
         //-------------------------------------------------------
-        let time_for_start = event.starting_time - new Date();
+        let time_for_start = event.starting_time - new Date() - 480 * 60;
         setTimeout(() => {
             send_message(
                 "Игра началась!(Или ее отменили :D)\n" + event_info,
