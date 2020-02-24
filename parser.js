@@ -90,8 +90,7 @@ async function get_active_games() {
                     try {
                         start_time = time_remaining_regex.exec(result.body)[1];
                     } catch (err) {
-                        start_time = 0;
-                        console.log(link);
+                        return;
                     }
 
                     let activeGame = new ActiveGame({

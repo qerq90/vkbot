@@ -222,6 +222,9 @@ async function check_active_games() {
                 `В игре '${game.name}' был сделан новый ход`,
                 user_ids
             );
+            console.log(
+                `отослал сообщение об игре ${game.name}\n${user_ids}\n`
+            );
             await ActiveGame.deleteOne(game);
         }
     }
