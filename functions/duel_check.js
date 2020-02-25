@@ -7,7 +7,7 @@ module.exports = async (user_ids, event_info) => {
 
         let users = await User.find();
         users = users.filter(el => user_ids.includes(el.id));
-        user_ids = users.filter(el => !el.duel_off).map(el => el.id);
-        return user_ids;
+        return users.filter(el => !el.duel_off).map(el => el.id);
     }
+    return user_ids;
 };
