@@ -107,10 +107,10 @@ async function get_active_games() {
     }
 }
 
-// setInterval(() => {
-//     get_events();
-// }, 10000);
+setInterval(() => {
+    get_events();
+}, 10000);
 
-// setInterval(() => {
-//     get_active_games();
-// }, 10000);
+setInterval(() => {
+    get_active_games();
+}, 10000);
