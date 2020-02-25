@@ -85,12 +85,12 @@ async function get_active_games() {
                     const name_regex = /<span class="gameName">(.+?)<\/span>/;
                     let name = name_regex.exec(result.body)[1];
 
-                    const time_remaining_regex = /<span class="timeremaining" unixtime="(\d*)" unixtimefrom="\d*">(.+?)<\/span>/;
+                    const time_remaining_regex = /<span class="timeremaining" unixtime="(\d*)" unixtimefrom=/;
                     let start_time;
                     try {
                         start_time = time_remaining_regex.exec(result.body)[1];
                     } catch (err) {
-                        return;
+                        continue;
                     }
 
                     let activeGame = new ActiveGame({
@@ -107,10 +107,10 @@ async function get_active_games() {
     }
 }
 
-setInterval(() => {
-    get_events();
-}, 10000);
+// setInterval(() => {
+//     get_events();
+// }, 10000);
 
-setInterval(() => {
-    get_active_games();
-}, 10000);
+// setInterval(() => {
+//     get_active_games();
+// }, 10000);

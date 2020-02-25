@@ -158,6 +158,36 @@ bot.command("/следить", async ctx => {
     ctx.scene.enter("active_games_choose");
 });
 
+bot.command("/дуэли офф", async ctx => {
+    let usr_id = ctx.message.from_id;
+    let user = await User.findOne({ id: usr_id });
+
+    if (user === null) {
+        await register(usr_id);
+        ctx.reply(replies.greeting);
+        return;
+    }
+
+    user.duel_off = true;
+    user.save();
+    ctx.reply(replies.duels_off);
+});
+
+bot.command("/дуэли", async ctx => {
+    let usr_id = ctx.message.from_id;
+    let user = await User.findOne({ id: usr_id });
+
+    if (user === null) {
+        await register(usr_id);
+        ctx.reply(replies.greeting);
+        return;
+    }
+
+    user.duel_off = false;
+    user.save();
+    ctx.reply(replies.duels_on);
+});
+
 bot.command("/help", async ctx => {
     ctx.reply(replies.help);
 });
