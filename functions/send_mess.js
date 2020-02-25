@@ -5,7 +5,7 @@ const duel_check = require("./duel_check");
 module.exports = (event_info, user_ids) => {
     if (!user_ids.length) return;
 
-    user_ids = duel_check(user_ids);
+    user_ids = duel_check(user_ids, event_info);
 
     try {
         api("messages.send", {
