@@ -218,6 +218,7 @@ bot.startPolling();
 async function send_notifications() {
     let users = await User.find();
     let events = await Event.find();
+    events = events.filter(el => !el.already_processed);
 
     for (const event of events) {
         let user_ids = get_user_ids(users, event);
@@ -237,7 +238,8 @@ async function send_notifications() {
             send_message(event_info, user_ids);
         }
 
-        await Event.deleteOne(event);
+        event.already_processed = true;
+        event.save();
     }
 }
 

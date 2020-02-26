@@ -9,14 +9,18 @@ const url_game = "https://server.webdiplomacy.ru/gamelistings.php";
 
 require("dotenv").config();
 
-let already_proccesed = [];
+let already_proccesed;
 
 mongoose
     .connect(process.env.MONGOTOKEN, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
-    .then(() => console.log("Mongo started"));
+    .then(async () => {
+        console.log("Mongo started");
+        already_proccesed = await ActiveGame.find();
+        already_proccesed = already_proccesed.map(el => el.url);
+    });
 
 function get_events() {
     needle.get(url_game, async (err, res) => {

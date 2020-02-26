@@ -9,6 +9,7 @@ const EventSchema = new mongoose.Schema({
     url: String,
     id: Number,
     type: Boolean,
-    time_for_move: String
+    time_for_move: String,
+    already_processed: Boolean
 });
 module.exports = new mongoose.model("Event", EventSchema);

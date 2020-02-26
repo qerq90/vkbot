@@ -37,7 +37,8 @@ module.exports = async link => {
         url: link,
         id: event_id,
         time_for_move: time_for_move,
-        type: type
+        type: type,
+        already_processed: false
     });
 
     event.save();
