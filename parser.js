@@ -85,8 +85,8 @@ async function get_active_games() {
                         continue;
                     }
 
-                    if (activeGames.map(el => el.id).includes(event_id)) {
-                        game = activeGames.filter(el => el.id == event.id)[0];
+                    if (activeGames.filter(el => el.id == event_id).length) {
+                        game = activeGames.filter(el => el.id == event_id)[0];
                         if (
                             new Date(game.time_remaining).getTime() !=
                             new Date(start_time * 1000).getTime()
