@@ -2,6 +2,7 @@ const needle = require("needle");
 const mongoose = require("mongoose");
 
 const ActiveGame = require("./schemas/active_game");
+const Event = require("./schemas/event");
 
 const { get_event, send_message } = require("./functions");
 
@@ -18,7 +19,7 @@ mongoose
     })
     .then(async () => {
         console.log("Mongo started");
-        already_proccesed = await ActiveGame.find();
+        already_proccesed = await Event.find();
         already_proccesed = already_proccesed.map(el => el.url);
     });
 
