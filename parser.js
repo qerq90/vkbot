@@ -25,6 +25,10 @@ mongoose
 
 function get_events() {
     needle.get(url_game, async (err, res) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
         const map_link_regex = /<a href="(.+)">Просмотр/gm;
         let all_a = map_link_regex.exec(res.body);
         if (all_a == null) return;
@@ -74,7 +78,7 @@ async function get_active_games() {
                     let event_id = event_id_regex.exec(link)[1];
 
                     const name_regex = /<span class="gameName">(.+?)<\/span>/;
-                    let name = name_regex.exec(result.body)[1];
+                    let name = name_regex.exec(result.body)[1]; //! возможны лаги с именами
 
                     const time_remaining_regex = /<span class="timeremaining" unixtime="(\d*)" unixtimefrom=/;
                     let start_time;
