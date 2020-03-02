@@ -95,6 +95,12 @@ async function get_active_games() {
                             new Date(game.time_remaining).getTime() !=
                             new Date(start_time * 1000).getTime()
                         ) {
+                            console.log(
+                                new Date(game.time_remaining),
+                                "\n",
+                                new Date(start_time * 1000)
+                            );
+
                             let users = await User.find();
 
                             users = users.filter(el =>

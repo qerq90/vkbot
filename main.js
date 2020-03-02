@@ -199,9 +199,9 @@ bot.event("message_new", async ctx => {
     let user = await User.find({ id: usr_id });
 
     if (user.length) {
-        let regex = /(Т|т)ро(я|и|ю)/;
+        let regex = /(Т|т)(р|Р)(o|O|о|О)(я|Я|и|Ю|И|ю)/; //TODO придумать регулярку получше
         if (ctx.message.text.search(regex) > -1) {
-            ctx.reply("Пидоры,поставьте уже Трою!");
+            ctx.reply("Flame велик и его решение не ставить Трою священно!");
         }
 
         return;
