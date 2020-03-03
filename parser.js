@@ -96,6 +96,8 @@ async function get_active_games() {
                             new Date(start_time * 1000).getTime()
                         ) {
                             console.log(
+                                game.name,
+                                "\n",
                                 new Date(game.time_remaining),
                                 "\n",
                                 new Date(start_time * 1000)
