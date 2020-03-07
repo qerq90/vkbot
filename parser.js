@@ -92,16 +92,8 @@ async function get_active_games() {
                     if (activeGames.filter(el => el.id == event_id).length) {
                         game = activeGames.filter(el => el.id == event_id)[0];
                         if (
-                            new Date(game.time_remaining).getTime() !=
-                            new Date(start_time * 1000).getTime()
+                            new Date(start_time * 1000).getTime() - new Date(game.time_remaining).getTime() > 10000
                         ) {
-                            console.log(
-                                game.name,
-                                "\n",
-                                new Date(game.time_remaining),
-                                "\n",
-                                new Date(start_time * 1000)
-                            );
 
                             let users = await User.find();
 
