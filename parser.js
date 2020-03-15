@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const ActiveGame = require("./schemas/active_game");
 const Event = require("./schemas/event");
 
-const { get_event, send_message } = require("./functions");
+const { get_event, send_message, log } = require("./functions");
 
 const url_game = "https://server.webdiplomacy.ru/gamelistings.php";
 
@@ -86,15 +86,19 @@ async function get_active_games() {
                     try {
                         start_time = time_remaining_regex.exec(result.body)[1];
                     } catch (err) {
-                        continue;
+                        log(
+                            `[${new Date()}]: Error with [${name}], time [${start_time}]`
+                        );
+                        return;
                     }
 
                     if (activeGames.filter(el => el.id == event_id).length) {
                         game = activeGames.filter(el => el.id == event_id)[0];
                         if (
-                            new Date(start_time * 1000).getTime() - new Date(game.time_remaining).getTime() > 10000
+                            new Date(start_time * 1000).getTime() -
+                                new Date(game.time_remaining).getTime() >
+                            10000
                         ) {
-
                             let users = await User.find();
 
                             users = users.filter(el =>
@@ -104,11 +108,20 @@ async function get_active_games() {
                             let user_ids = users.map(el => el.id);
 
                             send_message(
-                                `В игре '${game.name}' был сделан новый ход`,
+                                `В игре '${game.name}' был сделан новый ход\nСсылка на игру - ${game.url}`,
                                 user_ids
                             );
 
-                            await ActiveGame.deleteOne(game);
+                            let res = await ActiveGame.deleteOne(game);
+                            log(
+                                `[${new Date()}]: удалил ${res.deletedCount} ${
+                                    game.name
+                                }\nРазница - ${new Date(
+                                    start_time * 1000
+                                ).getTime()} / ${new Date(
+                                    game.time_remaining
+                                ).getTime()}`
+                            );
                         }
                     } else {
                         let activeGame = new ActiveGame({
@@ -132,4 +145,4 @@ setInterval(() => {
 
 setInterval(() => {
     get_active_games();
-}, 30000);
+}, 60000);

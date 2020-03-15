@@ -199,7 +199,7 @@ bot.event("message_new", async ctx => {
     let user = await User.find({ id: usr_id });
 
     if (user.length) {
-        let regex = /(Т|т)(р|Р)(o|O|о|О)(я|Я|и|Ю|И|ю)/; //TODO придумать регулярку получше
+        let regex = /(Т|т|T)(р|Р|P)(o|O|о|О)(я|Я|и|Ю|И|ю)/; //TODO придумать регулярку получше
         if (ctx.message.text.search(regex) > -1) {
             ctx.reply("Flame велик и его решение не ставить Трою священно!");
         }
